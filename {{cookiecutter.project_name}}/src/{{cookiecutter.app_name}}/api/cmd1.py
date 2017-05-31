@@ -7,8 +7,8 @@ from ..core import logger
 
 
 def main(**kwargs):
-    """ Execute the command.
-    
+    """
+    Execute the command.
     """
     # Using kwargs to provide a generic interface across all commands.
     logger.debug("executing cmd1 command")

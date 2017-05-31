@@ -16,8 +16,8 @@ __all__ = "config",
 
 
 class _AttrDict(dict):
-    """ A dict with attribute access.
-
+    """
+    A dict with attribute access.
     """
     def __getattr__(self, name):
         """ Access a dict value as an attribute.
@@ -31,10 +31,10 @@ class _AttrDict(dict):
 
 
 class _Config(_AttrDict):
-    """ Store configuration data.
+    """
+    Store configuration data.
 
     Data can be accessed as dict values or object attributes.
-
     """
     def __init__(self, paths=None, params=None):
         """ Initialize this object.
@@ -46,7 +46,8 @@ class _Config(_AttrDict):
         return
 
     def load(self, paths, params=None):
-        """ Load data from configuration files.
+        """
+        Load data from configuration files.
 
         Configuration values are read from a sequence of one or more YAML
         files. Files are read in the given order, and a duplicate value will
@@ -55,7 +56,6 @@ class _Config(_AttrDict):
         The optional 'params' argument is a dict-like object to use for
         parameter substitution in the config files. Any text matching "%key;"
         will be replaced with the value for 'key' in params.
-
         """
         def replace(match):
             """ Callback for re.sub to do parameter replacement. """

@@ -16,15 +16,15 @@ from {{ cookiecutter.app_name }}.cli import *  # test __all__
 
 @pytest.fixture(params=("cmd1", "cmd2"))
 def command(request):
-    """ Return the command to run.
-
+    """
+    Return the command to run.
     """
     return request.param
 
 
 def test_main(command):
-    """ Test the main() function.
-
+    """
+    Test the main() function.
     """
     # Call with the --help option as a basic sanity check.
     with pytest.raises(SystemExit) as exinfo:
@@ -34,11 +34,12 @@ def test_main(command):
 
 
 def test_script(command):
-    """ Test command line execution.
-
+    """
+    Test command line execution.
     """
     # Call with the --help option as a basic sanity check.
-    cmdl = "{:s} -m {{ cookiecutter.app_name }}.cli {:s} --help".format(executable, command)
+    cmdl = "{:s} -m {{ cookiecutter.app_name }}.cli {:s} --help".format(
+        executable, command)
     assert 0 == call(cmdl.split())
     return
 

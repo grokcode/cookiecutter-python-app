@@ -16,8 +16,8 @@ from {{ cookiecutter.app_name }}.core import *  # tests __all__
 
 
 def test_logger_stderr(capsys):
-    """ Test application logging to stderr.
-    
+    """
+    Test application logging to stderr.
     """
     message = "test_logger"
     logger.critical(message)
@@ -36,8 +36,8 @@ def test_logger_stderr(capsys):
 
 
 def test_logger_stream():
-    """ Test application logging to a stream.
-    
+    """
+    Test application logging to a stream.
     """
     message = "test_logger_stream"
     stream = BytesIO()
@@ -50,11 +50,11 @@ def test_logger_stream():
     assert not logger.active
     assert message in stream.getvalue()
     return
-    
-    
+
+
 def test_config(tmpdir):
-    """ Test application configuration.
-    
+    """
+    Test application configuration.
     """
     configs = (
         (tmpdir.join("empty.yml"), None),
@@ -74,7 +74,6 @@ def test_config(tmpdir):
     finally:
         config.clear()
     return
-    
 
 # Make the module executable.
 
